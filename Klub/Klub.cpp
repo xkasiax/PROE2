@@ -83,22 +83,21 @@ int main()
 	c2.addMember("Stas", "Polski", 28, MALE);
 	c2.addMember("Basia", "Nowa", 21, FEMALE);
 	c2.addMember("John", "Smith", 18, MALE);
-	c2.setClubName("Je¿yna");
+	c2.setClubName("Jezyna");
 	c2.setLocation(Location("Poland", "Warsaw", "Marmurkowa", 64));
 	c1.setDensflor(Densflor(24, 15));
 
-	testOpPorClub(c1, c2);
-	testOpPorMember(c1, c2);
-	testOpIdx(c1);
-	testOpSumDensflors(c1, c2);
-	testOpIncrement(c1.getDensflor());
-	testOpLocation(c2);
+	//testOpPorClub(c1, c2);
+	//testOpPorMember(c1, c2);
+	//testOpIdx(c1);
+	//testOpSumDensflors(c1, c2);
+	//testOpIncrement(c1.getDensflor());
+	//testOpLocation(c2);
 
 	cout << "Liczba wszystkich klubow: " << Club::getNumOfClubs() << endl;
 
 
-	int i;
-	cin >> i; //aby sie nie zamykalo
+	getchar(); //aby sie nie zamykalo
     return 0;
 }
 

@@ -2,6 +2,7 @@
 #include "Location.h"
 #include "Member.h"
 #include "Densflor.h"
+#include <vector>
 
 class Club
 {
@@ -9,7 +10,8 @@ private:
 	static int numOfClubs;
 	Location location;
 	Densflor densflor;
-	Member *members;
+	//Member *members;
+	vector <Member> members;
 	string clubName;
 	int memberNum;
 
@@ -23,11 +25,11 @@ public:
 	Densflor getDensflor();
 
 	const Member& operator[](int index); 
-	Club& operator = (const Club &c);
+	//Club& operator = (const Club &c);
 	bool operator == (const Club &c);
 
 	Club();
-	Club(const Club &c);
+	//Club(const Club &c);
 
 	~Club();
 };

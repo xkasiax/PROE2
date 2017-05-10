@@ -19,9 +19,9 @@ int Densflor::getArea()
 	return this->area;
 }
 
-Densflor& Densflor::operator+(const Densflor &d)
+Densflor Densflor::operator+(const Densflor &d)
 {
-	Densflor sum;
+	Densflor sum ;
 	sum.area = this->area + d.area;
 	return sum;
 }

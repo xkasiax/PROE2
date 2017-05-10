@@ -17,7 +17,7 @@ public:
 	void lightON();
 	int getArea();
 
-	Densflor& operator+(const Densflor & d);
+	Densflor operator+(const Densflor & d);
 	Densflor operator++(int); //postinkrementacja
 	Densflor();
 	Densflor(int w, int h);

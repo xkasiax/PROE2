@@ -14,7 +14,8 @@ int Club::getNumOfClubs()
 void Club::addMember(string name, string surname, int age, Sex sex)
 {
 	Member newMember = Member(name, surname, age, sex);
-	
+	members.push_back(newMember);
+	/*
 	Member *temp = new Member[memberNum+1];
 	for (int i = 0; i<memberNum; i++)
 		temp[i] = members[i];   // kopiowanie elementu z poprzedniej tablicy
@@ -22,7 +23,9 @@ void Club::addMember(string name, string surname, int age, Sex sex)
 	delete[] members;
 	members = temp;
 	members[memberNum] = newMember;
+	*/
 	memberNum++;
+	cout << "rozmiar members" << members.size() << endl;
 }
 
 void Club::setClubName(string cName)
@@ -59,30 +62,34 @@ const Member & Club::operator[](int index)
 	else
 		return members[index];
 }
-
+/*
 Club & Club::operator=(const Club & c)
 {
-	clubName = c.clubName;
-	location = c.location;
-	densflor = c.densflor;
-	memberNum = c.memberNum;
-
-	if (c.members != nullptr)
+	if (c.members != (this->members))
 	{
-		members = new Member[memberNum];
-		for (int i = 0; i < memberNum; i++)
+		delete[] members;
+		clubName = c.clubName;
+		location = c.location;
+		densflor = c.densflor;
+		memberNum = c.memberNum;
+
+		if (c.members != nullptr)
 		{
-			members[i] = c.members[i];
+			members = new Member[memberNum];
+			for (int i = 0; i < memberNum; i++)
+			{
+				members[i] = c.members[i];
+			}
 		}
-	}
-	else
-	{
-		members = nullptr;
-	}
+		else
+		{
+			members = nullptr;
+		}
 
-	return *this;
+		return *this;
+	}
 }
-
+*/
 bool Club::operator==(const Club & c)
 {
 	if (c.clubName == clubName && location == c.location) 
@@ -96,8 +103,8 @@ bool Club::operator==(const Club & c)
 Club::Club()
 {
 	memberNum = 0;
-	members = new Member[memberNum];
-	
+	//members = nullptr;
+	members.clear(); //
 	location = Location();
 	densflor = Densflor();
 	numOfClubs++;
@@ -107,7 +114,7 @@ Club::Club()
 #endif
 
 }
-
+/*
 Club::Club(const Club & c) // konstruktor kopiujacy
 {
 	memberNum = c.memberNum;
@@ -133,11 +140,11 @@ Club::Club(const Club & c) // konstruktor kopiujacy
 	cout << "wywolano konstruktor kopiujacy klasy Club" << endl;
 #endif
 }
-
+*/
 
 Club::~Club()
 {
-	delete []members;
+	members.clear();//
 	numOfClubs--;
 #ifdef _DEBUG
 	cout << "wywolano destruktor klasy Club" << endl;
