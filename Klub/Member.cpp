@@ -40,21 +40,7 @@ Member::operator string() const
 	return name + "_" + surname + "_" + to_string(age) + "_" + s;
 }
 
-bool Member::operator==(const Member & m)
-{	
-	if (m.name == name && m.surname == surname && m.age == age && m.sex == sex)
-		return true;
-	else
-		return false;
-}
 
-bool operator==(const Member & m1, const Member & m2)
-{
-	if (m1.name == m2.name && m1.surname == m2.surname && m1.age == m2.age && m1.sex == m2.sex)
-		return true;
-	else
-		return false;
-}
 
 ostream& operator << (ostream &s, Member &m)
 {

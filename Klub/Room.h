@@ -4,7 +4,7 @@ using namespace std;
 
 enum LIGHT_MODE {ON, OFF};
 
-class Densflor
+class Room
 {
 private:
 	LIGHT_MODE lightMode;
@@ -17,9 +17,9 @@ public:
 	void lightON();
 	int getArea();
 
-	Densflor operator+(const Densflor & d);
-	Densflor operator++(int); //postinkrementacja
-	Densflor();
-	Densflor(int w, int h);
-	~Densflor();
+	Room operator+(const Room & d);
+	Room operator++(int); //postinkrementacja
+	Room();
+	Room(int w, int h);
+	~Room();
 };

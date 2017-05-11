@@ -30,10 +30,19 @@
     <ClInclude Include="Member.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Densflor.h">
+    <ClInclude Include="Location.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Location.h">
+    <ClInclude Include="Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicClub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SportClub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SquashSportClub.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,10 +59,19 @@
     <ClCompile Include="Member.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Densflor.cpp">
+    <ClCompile Include="Location.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Location.cpp">
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicClub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SportClub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SquashSportClub.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

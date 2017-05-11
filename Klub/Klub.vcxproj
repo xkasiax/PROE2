@@ -146,18 +146,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Club.h" />
-    <ClInclude Include="Densflor.h" />
+    <ClInclude Include="MusicClub.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="Member.h" />
     <ClInclude Include="Location.h" />
+    <ClInclude Include="SportClub.h" />
+    <ClInclude Include="SquashSportClub.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Club.cpp" />
-    <ClCompile Include="Densflor.cpp" />
+    <ClCompile Include="MusicClub.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Klub.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Location.cpp" />
+    <ClCompile Include="SportClub.cpp" />
+    <ClCompile Include="SquashSportClub.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
