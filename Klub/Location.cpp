@@ -22,6 +22,18 @@ Location::Location(string ct, string c, string s, int bnum)
 	buildingNum = bnum;
 }
 
+ostream & Location::saveToFile(ostream &os) const
+{
+	os << street << " " << buildingNum << " " << city << " " << country <<endl;
+	return os;
+}
+
+istream & Location::readFromFile(istream &is)
+{
+	is >> street >> buildingNum >> city >> country;
+	return is;
+}
+
 bool Location::operator==(const Location & l)
 {
 	if (l.street == street && l.city == city && l.country == country && l.buildingNum == buildingNum)

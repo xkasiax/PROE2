@@ -17,6 +17,9 @@ public:
 	Location(string ct, string c, string s, int bnum);
 
 	friend ostream& operator << (ostream &s, Location &l);
+	ostream& saveToFile(ostream&) const;
+	istream& readFromFile(istream&);
+
 	bool operator == (const Location &l);
 
 	~Location();

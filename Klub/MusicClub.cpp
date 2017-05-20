@@ -9,48 +9,39 @@ using namespace std;
 
 MusicClub::MusicClub()
 {
-
+	rating=0;
+	musicType = "";
+	clubName = "";
 }
 
-void MusicClub::addMember(Member &m)
-{
-	//Member newMember = Member(name, surname, age, sex);
-	members.push_back(m);
-	//cout << "rozmiar members" << members.size() << endl;
-}
+
 
 void MusicClub::display() 
 {
-	cout << " Klub  " << clubName << " z muzyk¹ typu:  " << musicType <<". Ocena klubu przez u¿ytkowników: " << rating << endl;
-	
-	for (int n = 0; n<members.size(); n++)
-	{
-		cout << members[n];
-	}
+	Club::display();
+	cout << " Muzyka typu:  " << musicType <<" Ocena klubu przez u¿ytkowników: " << rating << endl;
 }
 
 ostream & MusicClub::saveToFile(ostream &os) const
 {
-	os << clubName << " " << musicType << " " << rating << " ";
-	os << members.size() << " ";
-	for (int n = 0; n < members.size(); n++)
-	{
-		members[n].saveToFile(os);
-	}
+	Club::saveToFile(os);
+	os << " " << musicType << " " << rating << " ";
+
 	return os;
 }
 
 istream & MusicClub::readFromFile(istream &is)
 {
-	is >> clubName >> musicType >> rating;
 	size_t N;
 	is >> N;
-	for (std::size_t n = 0; n<N; ++n)
+	for (size_t n = 0; n<N; ++n)
 	{
 		Member m = Member();
 		m.readFromFile(is);
 		members.push_back(m);
 	}
+	is >> clubName >> musicType >> rating;
+	
 	return is;
 }
 

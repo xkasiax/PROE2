@@ -8,18 +8,19 @@ class Club
 {
 private:
 	static int numOfClubs;
+	
+protected:
+	vector <Member> members;
+	string clubName;
 	Location location;
 	Room room;
-	
-	string clubName;
-
 
 public:
 	virtual bool makeReservation() = 0;
-	virtual void display() const = 0;
-	virtual ostream& saveToFile(ostream&) const = 0;
-	virtual istream& readFromFile(istream&) = 0; 
-	virtual void addMember(string, string, int, Sex) = 0;
+	virtual void display();
+	virtual ostream& saveToFile(ostream&) const;
+	virtual istream& readFromFile(istream&); 
+	void addMember(Member & m);
 
 	static int getNumOfClubs();
 	void setClubName(string cName);
@@ -27,9 +28,8 @@ public:
 	Location getLocation();
 	void setDensflor(Room r);
 	Room getDensflor();
-	const Member& operator[](int index); 
+	const Member& operator[](size_t index);
 	//Club& operator = (const Club &c);
-	bool operator == (const Club &c);
 
 	virtual ~Club();
 };

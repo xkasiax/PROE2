@@ -158,10 +158,10 @@
   <ItemGroup>
     <ClCompile Include="Club.cpp" />
     <ClCompile Include="MusicClub.cpp" />
-    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Klub.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Location.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="SportClub.cpp" />
     <ClCompile Include="SquashSportClub.cpp" />
     <ClCompile Include="stdafx.cpp" />

@@ -44,10 +44,23 @@ Member::operator string() const
 
 ostream& operator << (ostream &s, Member &m)
 {
-	s << endl << m.name << " " << m.surname << " Age: " << m.age << endl;
+	s << endl << "Dane cz³onka klubu: " << m.name << " " << m.surname << " Age: " << m.age << " Sex:" << m.sex << endl;
 	return s;
 }
 
+
+
+ostream & Member::saveToFile(ostream &os) const
+{
+	os << name << " " << surname << " " << age << endl;
+	return os;
+}
+
+istream & Member::readFromFile(istream &is)
+{
+	is >> name >> surname >> age;
+	return is;
+}
 
 Member::~Member()
 {

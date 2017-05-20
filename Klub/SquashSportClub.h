@@ -11,7 +11,7 @@ using namespace std;
 class SquashSportClub : public SportClub
 {
 private:
-	vector <Member> members;
+	int numOfRackets;
 
 public:
 	SquashSportClub();
@@ -20,7 +20,7 @@ public:
 		var = 0;
 	};
 
-	virtual void display() const;
+	virtual void display();
 	virtual ostream& saveToFile(ostream&) const;
 	virtual istream& readFromFile(istream&);
 

@@ -1,6 +1,7 @@
 #include "Room.h"
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ int Room::getArea()
 
 Room Room::operator+(const Room &d)
 {
-	Room sum ;
+	Room sum;
 	sum.area = this->area + d.area;
 	return sum;
 }
@@ -32,6 +33,8 @@ Room Room::operator++(int)
 	area++; // pre-increment
 	return tmp;   // return old value
 }
+
+
 
 Room::Room()
 {
@@ -55,6 +58,23 @@ Room::Room(int w, int h)
 #ifdef _DEBUG
 	cout << "wywolano konstruktor z parametrem klasy Room" << endl;
 #endif
+}
+
+ostream & Room::saveToFile(ostream &) const
+{
+	// TODO: insert return statement here
+}
+
+istream & Room::readFromFile(istream &is)
+{
+	return is;
+}
+
+ostream & operator<<(ostream &s, Room &r)
+{
+	s << endl << "Pomieszczenie o wymiarach:  " << r.width << " x " << r.height << " Powierzchnia: " << r.area << endl;
+	//s << "Stan œwiat³a: " << lightMode;
+	return s;
 }
 
 Room::~Room()
