@@ -12,7 +12,8 @@ int Club::getNumOfClubs()
 }
 
 ostream & Club::saveToFile(ostream &os) const
-{
+{	
+	os << typ << " ";
 	os << members.size() << " ";
 	for (size_t n = 0; n < members.size(); n++)
 	{

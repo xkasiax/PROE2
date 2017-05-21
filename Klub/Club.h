@@ -14,6 +14,7 @@ protected:
 	string clubName;
 	Location location;
 	Room room;
+	int typ;
 
 public:
 	

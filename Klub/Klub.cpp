@@ -249,29 +249,83 @@ int main()
 		else if (var == '4')
 		{
 			//zapis
+			cout << "Tryb zapisu do pliku" << endl;
 			fstream file;
 
 			file.open("dane.txt", ios::out);//
 			if (file.is_open())
 			{
-				string data;
 				cout << "otwarto plik" << endl;
 				//getline(file, data); //wczytanie CA£EGO jednego wiersza danych
-				//plik << kolekcja << endl; //zapis
+				size_t N = clubs.size();
+				file << N << " ";
+				for (size_t n = 0; n<N; ++n)
+				{
+					clubs[n]->saveToFile(file);
+				}
 			}
 			else
 				cout << "Blad otwarcia pliku";
 			file.close();
+
 		}
 		else if (var == '5')
 		{
 			//odczyt z pliku
+			fstream file;
+			file.open("dane.txt", ios::in);
+			if (file.is_open())
+			{
+				size_t N;
+				file >> N;
+				for (size_t n = 0; n<N; ++n)
+				{
+					int typ;
+					file >> typ;
+					switch (typ)
+					{
+					case 0:
+					{
+						MusicClub *mc = new MusicClub();
+						mc->readFromFile(file);
+						clubs.push_back(mc);
+						break;
+					}
+					case 1:
+					{
+						SportClub *s = new SportClub();
+						s->readFromFile(file);
+						clubs.push_back(s);
+						break;
+					}
+					case 2:
+					{
+						SquashSportClub *ss = new SquashSportClub();
+						ss->readFromFile(file);
+						clubs.push_back(ss);
+						break;
+					}
+					}
+				}
+				file.close();
+			}
+			else
+			{
+				cout << "Blad otwarcia pliku" << endl;
+			}
 
 		}
 
 		else if (var == '6')
 		{
-			//wypisywanie
+			cout << "Tryb wypisywania ca³ego obiektu" << endl;
+			//wypisywanie - polimorfizm
+			size_t N;
+			N = clubs.size();
+			for (size_t n = 0; n < N; ++n)
+			{
+				clubs[n]->display();
+			}
 		}
 		else if (var == '7')
 		{

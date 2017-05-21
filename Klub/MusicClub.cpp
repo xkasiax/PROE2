@@ -12,6 +12,7 @@ MusicClub::MusicClub(string name, int r, string type)
 	rating=r;
 	musicType = type;
 	clubName = name;
+	typ = 1;
 }
 
 
@@ -30,7 +31,7 @@ void MusicClub::display()
 ostream & MusicClub::saveToFile(ostream &os) const
 {
 	Club::saveToFile(os);
-	os << " " << musicType << " " << rating;
+	os << " " << musicType << " " << rating << " ";
 	return os;
 }
 

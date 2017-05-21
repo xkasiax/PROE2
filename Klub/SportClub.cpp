@@ -9,6 +9,7 @@ using namespace std;
 
 SportClub::SportClub()
 {
+	typ = 1;
 	sportType = "";
 	numOfBikes = 0;
 	clubName = "";
@@ -16,6 +17,7 @@ SportClub::SportClub()
 
 SportClub::SportClub(string name, string type, int bikes)
 {
+	typ = 1;
 	clubName = name;
 	sportType = type;
 	numOfBikes = bikes;

@@ -10,11 +10,13 @@ using namespace std;
 SquashSportClub::SquashSportClub()
 {
 	sportType = "squash";
+	typ = 2;
 }
 
 SquashSportClub::SquashSportClub(string name, string type, int bikes, int rackets) : SportClub(name, type, bikes)
 {
 	numOfRackets = rackets;
+	typ = 2;
 }
 
 void SquashSportClub::display()

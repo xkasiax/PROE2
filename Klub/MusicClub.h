@@ -14,9 +14,10 @@ private:
 	int rating;
 	string musicType;
 	
+	
 public:
 	MusicClub(string name, int r, string type);
-
+	MusicClub() { typ = 0; };
 	virtual void display();
 	virtual ostream& saveToFile(ostream&) const;
 	virtual istream& readFromFile(istream&);
