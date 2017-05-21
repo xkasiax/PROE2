@@ -60,9 +60,10 @@ Room::Room(int w, int h)
 #endif
 }
 
-ostream & Room::saveToFile(ostream &) const
+ostream & Room::saveToFile(ostream &os) const
 {
 	// TODO: insert return statement here
+	return os;
 }
 
 istream & Room::readFromFile(istream &is)

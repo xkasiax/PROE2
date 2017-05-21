@@ -11,6 +11,7 @@
 #include "Member.h"
 #include <iostream>
 #include <fstream>
+#include <map>
 
 using namespace std;
 
@@ -73,22 +74,22 @@ int main()
 				while (!(cin >> clubName))
 				{
 					cout << "Podales zly typ zmiennej" << endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				cout << "Ocena uzytkownikow: " << endl;
 				while (!(cin >> rating))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear(); 
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				cout << "Podaj typ muzyki: " << endl;
 				while (!(cin >> musicType))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				clubs.push_back(new MusicClub(clubName, rating, musicType));
 				break;
@@ -101,22 +102,22 @@ int main()
 				while (!(cin >> clubName))
 				{
 					cout << "Podales zly typ zmiennej" << endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				cout << "Dyscyplina sportu: " << endl;
 				while (!(cin >> sportType))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				cout << "Podaj liczbe rowerow:" << endl;
 				while (!(cin >> bikes))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				clubs.push_back(new SportClub(clubName, sportType, bikes));
 				break;
@@ -129,22 +130,22 @@ int main()
 				while (!(cin >> clubName))
 				{
 					cout << "Podales zly typ zmiennej" << endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				cout << "Podaj liczbe rowerow:" << endl;
 				while (!(cin >> bikes))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				cout << "Liczba dostêpnych rakiet: " << endl;
 				while (!(cin >> rackets))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
-					cin.clear(); //kasowanie flagi b³êdu strumienia
-					cin.sync(); //kasowanie zbêdnych znaków z bufora
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
 				clubs.push_back(new SquashSportClub(clubName, "squash", bikes, rackets));
 				break;
@@ -153,13 +154,97 @@ int main()
 		}
 		else if (var == '2')
 		{
+			string n, s;
+			int a;
+			
+
 			cout << "----------- Jestes w trybie dodawania cz³onka do Klubu -----------" << endl;
-			cout << "Wprowadz nr klubu, do ktorego chcesz zapisac czlonka: " << endl;
 			size_t N = clubs.size();
-			for (size_t n = 0; n < N; ++n)
+			if (N == 0)
 			{
-				cout << "(" << n << ")" << clubs[n]->getClubName() << endl;
+				cout << "Brak klubow, do ktorych mozna sie zapisac. Stworz najpierw klub!" << endl;
 			}
+			else {
+				cout << "Wprowadz dane osobowe: " << endl;
+				cout << "Imie: " << endl;
+				while (!(cin >> n))
+				{
+					cout << "Podales zly typ zmiennej" << endl;
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				}
+				cout << "nazwisko: " << endl;
+				while (!(cin >> s))
+				{
+					cout << "Podales zly typ zmiennej" << endl;
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				}
+				cout << "wiek: " << endl;
+				while (!(cin >> a))
+				{
+					cout << "Podales zly typ zmiennej" << endl;
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				}
+				cout << "plec: (FEMALE/MALE) " << endl;
+
+				map<string, Sex> m;
+				m["FEMALE"] = FEMALE;
+				m["MALE"] = MALE;
+
+				string ssex;
+				cin >> ssex;
+				Sex x = m[ssex];
+
+				Member member(n, s, a, x);
+
+				cout << "Wprowadz nr klubu, do ktorego chcesz zapisac czlonka: " << endl;
+				size_t N = clubs.size();
+				for (size_t n = 0; n < N; ++n)
+				{
+					cout << "(" << n << ")" << clubs[n]->getClubName() << endl;
+				}
+				cout << "Indeks wybranego klubu: " << endl;
+				int index;
+				while (!(cin >> index))
+				{
+					cout << "Podales zly typ zmiennej" << endl;
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				}
+				clubs[index]->addMember(member);
+				cout << "Dodano cz³onka" << endl;
+			}
+			
+		}
+		else if (var == '3')
+		{
+			size_t N = clubs.size();
+			if (N == 0)
+			{
+				cout << "Brak klubow do usuniecia" << endl;
+			}
+			else
+			{
+				cout << "Wprowadz nr klubu, ktory chcesz usunac: " << endl;
+				size_t N = clubs.size();
+				for (size_t n = 0; n < N; ++n)
+				{
+					cout << "(" << n << ")" << clubs[n]->getClubName() << endl;
+				}
+				cout << "Indeks wybranego klubu: " << endl;
+				int index;
+				while (!(cin >> index))
+				{
+					cout << "Podales zly typ zmiennej" << endl;
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				}
+				clubs.erase(clubs.begin() + index);
+				cout << "Klub o numerze identyfikacyjnym: " << index << " zostal usuniety " << endl;
+			}
+			
 		}
 		else if (var == '4')
 		{
@@ -224,7 +309,7 @@ int main()
 
 
 
-		getchar(); //aby sie nie zamykalo
+		//getchar(); //aby sie nie zamykalo
 		//return 0;
 	}
 }
