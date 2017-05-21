@@ -11,16 +11,6 @@ int Club::getNumOfClubs()
 	return numOfClubs;
 }
 
-void Club::display()
-{
-	cout << "Cz³onkowie klubu: " << endl;
-	for (size_t n = 0; n<members.size(); n++)
-	{
-		cout << members[n];
-	}
-	cout << " Klub  " << clubName;
-}
-
 ostream & Club::saveToFile(ostream &os) const
 {
 	os << members.size() << " ";
@@ -47,14 +37,17 @@ istream & Club::readFromFile(istream &is)
 
 void Club::addMember(Member &m)
 {
-	//Member newMember = Member(name, surname, age, sex);
 	members.push_back(m);
-	//cout << "rozmiar members" << members.size() << endl;
 }
 
 void Club::setClubName(string cName)
 {
 	this->clubName = cName;
+}
+
+string Club::getClubName()
+{
+	return clubName;
 }
 
 void Club::setLocation(Location l)

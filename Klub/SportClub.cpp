@@ -14,11 +14,11 @@ SportClub::SportClub()
 	clubName = "";
 }
 
-SportClub::SportClub(string name)
+SportClub::SportClub(string name, string type, int bikes)
 {
 	clubName = name;
-	sportType = "";
-	numOfBikes = 0;
+	sportType = type;
+	numOfBikes = bikes;
 }
 
 void SportClub::display()
@@ -32,11 +32,14 @@ void SportClub::display()
 
 ostream & SportClub::saveToFile(ostream &os) const
 {
+	Club::saveToFile(os);
+	os << " " << sportType << " " << numOfBikes;
 	return os;
 }
 
 istream & SportClub::readFromFile(istream &is)
 {
+	is >> clubName >> sportType >> numOfBikes;
 	return is;
 }
 

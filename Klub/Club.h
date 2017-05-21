@@ -16,20 +16,20 @@ protected:
 	Room room;
 
 public:
-	virtual bool makeReservation() = 0;
-	virtual void display();
+	
+	virtual void display() = 0;
 	virtual ostream& saveToFile(ostream&) const;
 	virtual istream& readFromFile(istream&); 
 	void addMember(Member & m);
 
 	static int getNumOfClubs();
 	void setClubName(string cName);
+	string getClubName();
 	void setLocation(Location l);
 	Location getLocation();
 	void setDensflor(Room r);
 	Room getDensflor();
 	const Member& operator[](size_t index);
-	//Club& operator = (const Club &c);
 
 	virtual ~Club();
 };

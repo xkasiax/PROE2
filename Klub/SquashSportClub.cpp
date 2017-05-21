@@ -9,7 +9,12 @@ using namespace std;
 
 SquashSportClub::SquashSportClub()
 {
+	sportType = "squash";
+}
 
+SquashSportClub::SquashSportClub(string name, string type, int bikes, int rackets) : SportClub(name, type, bikes)
+{
+	numOfRackets = rackets;
 }
 
 void SquashSportClub::display()
@@ -24,12 +29,15 @@ void SquashSportClub::display()
 
 ostream & SquashSportClub::saveToFile(ostream &os) const
 {
-
+	SportClub::saveToFile(os);
+	os << " " << numOfRackets;
 	return os;
 }
 
 istream & SquashSportClub::readFromFile(istream &is)
 {
+	SportClub::readFromFile(is);
+	is >> numOfRackets;
 	return is;
 }
 

@@ -10,13 +10,13 @@ using namespace std;
 
 class SportClub : public Club
 {
-private:
+protected:
 	string sportType;
 	int numOfBikes;
 
 public:
 	SportClub();
-	SportClub(string name);
+	SportClub(string name, string type, int bikes);
 
 	virtual void display();
 	virtual ostream& saveToFile(ostream&) const;

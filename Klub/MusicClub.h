@@ -13,13 +13,10 @@ class MusicClub : public Club
 private:
 	int rating;
 	string musicType;
-	string clubName;
-	//vector <Member> members;
 	
 public:
-	MusicClub();
-	//virtual void addMember(Member & m);
-	//virtual void addMember(string, string, int, Sex);
+	MusicClub(string name, int r, string type);
+
 	virtual void display();
 	virtual ostream& saveToFile(ostream&) const;
 	virtual istream& readFromFile(istream&);

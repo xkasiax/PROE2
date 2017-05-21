@@ -43,8 +43,13 @@ Member::operator string() const
 
 
 ostream& operator << (ostream &s, Member &m)
-{
-	s << endl << "Dane cz³onka klubu: " << m.name << " " << m.surname << " Age: " << m.age << " Sex:" << m.sex << endl;
+{	
+	string sex;
+	if (m.sex == 0)
+		sex = "FEMALE";
+	else
+		sex = "MALE";
+	s << endl << "Dane czlonka klubu: " << m.name << " " << m.surname << " Wiek: " << m.age << " Plec: " << sex << endl;
 	return s;
 }
 

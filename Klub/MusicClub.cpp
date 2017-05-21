@@ -7,41 +7,37 @@
 
 using namespace std;
 
-MusicClub::MusicClub()
+MusicClub::MusicClub(string name, int r, string type)
 {
-	rating=0;
-	musicType = "";
-	clubName = "";
+	rating=r;
+	musicType = type;
+	clubName = name;
 }
 
 
 
 void MusicClub::display() 
 {
-	Club::display();
+	cout << " Klub  " << clubName;
 	cout << " Muzyka typu:  " << musicType <<" Ocena klubu przez u¿ytkowników: " << rating << endl;
+	cout << "Cz³onkowie klubu: " << endl;
+	for (size_t n = 0; n<members.size(); n++)
+	{
+		cout << members[n];
+	}
 }
 
 ostream & MusicClub::saveToFile(ostream &os) const
 {
 	Club::saveToFile(os);
-	os << " " << musicType << " " << rating << " ";
-
+	os << " " << musicType << " " << rating;
 	return os;
 }
 
 istream & MusicClub::readFromFile(istream &is)
 {
-	size_t N;
-	is >> N;
-	for (size_t n = 0; n<N; ++n)
-	{
-		Member m = Member();
-		m.readFromFile(is);
-		members.push_back(m);
-	}
+	Club::readFromFile(is);
 	is >> clubName >> musicType >> rating;
-	
 	return is;
 }
 

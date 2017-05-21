@@ -15,10 +15,7 @@ private:
 
 public:
 	SquashSportClub();
-	SquashSportClub(string name, int var) : SportClub(name) 
-	{
-		var = 0;
-	};
+	SquashSportClub(string name, string type, int bikes, int rackets);
 
 	virtual void display();
 	virtual ostream& saveToFile(ostream&) const;
