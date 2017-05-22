@@ -4,7 +4,7 @@
 using namespace std;
 
 enum LIGHT_MODE {ON, OFF};
-
+///Klasa z informacjami o pomieszczeniu
 class Room
 {
 	LIGHT_MODE lightMode;

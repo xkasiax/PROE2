@@ -7,11 +7,11 @@
 #include "SportClub.h"
 
 using namespace std;
-
+///Klasa dziedziczaca po klasie SportClub - klub sportowy do squasha
 class SquashSportClub : public SportClub
 {
 private:
-	int numOfRackets;
+	int numOfRackets;///<zmienna przechowujaca liczbe rakiet dostepnych w klubie
 
 public:
 	SquashSportClub();

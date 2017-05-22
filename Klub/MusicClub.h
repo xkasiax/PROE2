@@ -7,12 +7,12 @@
 #include "Club.h"
 
 using namespace std;
-
+///Klasa dziedziczaca po klasie Club - Klub Muzyczny
 class MusicClub : public Club
 {
 private:
-	int rating;
-	string musicType;
+	int rating;///<zmienna przechowujaca ocene klubu typu int
+	string musicType;///<zmianna przechowujaca typ muzyki typu string
 	
 	
 public:

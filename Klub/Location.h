@@ -4,7 +4,7 @@
 #include <string>
 
 using namespace std;
-
+///Klasa przechowujaca informacje o lokalizacji klubu
 class Location
 {
 private:
