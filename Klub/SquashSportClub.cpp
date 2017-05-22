@@ -32,7 +32,7 @@ void SquashSportClub::display()
 ostream & SquashSportClub::saveToFile(ostream &os) const
 {
 	SportClub::saveToFile(os);
-	os << " " << numOfRackets;
+	os << " " << numOfRackets <<" ";
 	return os;
 }
 

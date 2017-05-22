@@ -1,2 +1,2 @@
-3 1 0 muzyka latino 8 1 1 kasia kulak 23
-sport kregle 552 0 squash squash 2 22
+2 2 1 Jan Kowalski 25
+squashowy squash 8  99 1 0 sportowy tenis 9 

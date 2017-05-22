@@ -12,7 +12,7 @@ MusicClub::MusicClub(string name, int r, string type)
 	rating=r;
 	musicType = type;
 	clubName = name;
-	typ = 1;
+	typ = 0;
 }
 
 

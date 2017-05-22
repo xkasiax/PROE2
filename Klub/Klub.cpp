@@ -44,10 +44,11 @@ int main()
 	string musicType, sportType;
 	int bikes, rackets;
 
+	cout << "Witaj w systemie zarzadzania klubami. Wybierz czynnosc, ktora chcesz wykonac:" << endl;
 	while (true)
 	{
 		char var;
-		cout << "Witaj w systemie zarzadzania klubami. Wybierz czynnosc, ktora chcesz wykonac:" << endl;
+		
 		cout << " (1) Otwarcie nowego klubu" << endl;
 		cout << " (2) Zapisz czlonka do klubu" << endl;
 		cout << " (3) Usun klub " << endl;
@@ -140,7 +141,7 @@ int main()
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
-				cout << "Liczba dostêpnych rakiet: " << endl;
+				cout << "Liczba dostepnych rakiet: " << endl;
 				while (!(cin >> rackets))
 				{
 					cout << "Podales zly typ zmiennej" << std::endl;
@@ -207,14 +208,15 @@ int main()
 				}
 				cout << "Indeks wybranego klubu: " << endl;
 				int index;
-				while (!(cin >> index))
+				while (!(cin >> index)|| index <0 ||index>=N)
 				{
-					cout << "Podales zly typ zmiennej" << endl;
+					cout << "Podales zly typ zmiennej lub indeks spoza zakresu" << endl;
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				}
+				
 				clubs[index]->addMember(member);
-				cout << "Dodano cz³onka" << endl;
+				cout << "Dodano czlonka do wybranego klubu" << endl;
 			}
 			
 		}
@@ -252,17 +254,16 @@ int main()
 			cout << "Tryb zapisu do pliku" << endl;
 			fstream file;
 
-			file.open("dane.txt", ios::out);//
+			file.open("dane.txt", ios::out);
 			if (file.is_open())
 			{
-				cout << "otwarto plik" << endl;
-				//getline(file, data); //wczytanie CA£EGO jednego wiersza danych
 				size_t N = clubs.size();
 				file << N << " ";
 				for (size_t n = 0; n<N; ++n)
 				{
 					clubs[n]->saveToFile(file);
 				}
+				cout << "Poprawnie zapisano dane do pliku" << endl;
 			}
 			else
 				cout << "Blad otwarcia pliku";
@@ -271,13 +272,14 @@ int main()
 		}
 		else if (var == '5')
 		{
+			clubs.clear();
 			//odczyt z pliku
 			fstream file;
 			file.open("dane.txt", ios::in);
 			if (file.is_open())
 			{
 				size_t N;
-				file >> N;
+				file >> N; //liczba klubow
 				for (size_t n = 0; n<N; ++n)
 				{
 					int typ;
@@ -308,6 +310,7 @@ int main()
 					}
 				}
 				file.close();
+				cout << "Poprawnie zaladowano dane z pliku" << endl;
 			}
 			else
 			{
@@ -333,38 +336,6 @@ int main()
 		}
 		else
 			cout << "Wybrano zla wartosc. Wpisz ponownie poprawna wartosc" << endl << endl;
-
-
-		//MusicClub c1;
-		//c1.setClubName("Malina");
-		//c1.setLocation(Location("Poland", "Warsaw", "Sezamkowa", 88));
-		//Member m("Jan", "Nowak", 22, MALE);
-		//c1.addMember(m);
-		//c1.display();
-
-		/*
-		Club c1, c2;
-
-		c1.addMember("Jan", "Nowak", 22, MALE);
-		c1.addMember("John", "Smith", 18, MALE);
-		c1.setClubName("Malina");
-		c1.setLocation(Location("Poland", "Warsaw", "Sezamkowa", 88));
-		c1.setDensflor(Densflor(12, 20));
-
-		c2.addMember("Anna", "Kot", 25, FEMALE);
-		c2.addMember("Stas", "Polski", 28, MALE);
-		c2.addMember("Basia", "Nowa", 21, FEMALE);
-		c2.addMember("John", "Smith", 18, MALE);
-		c2.setClubName("Jezyna");
-		c2.setLocation(Location("Poland", "Warsaw", "Marmurkowa", 64));
-		c1.setDensflor(Densflor(24, 15));
-		*/
-
-
-
-
-		//getchar(); //aby sie nie zamykalo
-		//return 0;
 	}
 }
 
