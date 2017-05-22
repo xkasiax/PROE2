@@ -9,9 +9,6 @@ Location::Location()
 {
 	street, city, country = "";
 	buildingNum = 0;
-#ifdef _DEBUG
-	cout << "wywolano konstruktor klasy Location" << endl;
-#endif
 }
 
 Location::Location(string ct, string c, string s, int bnum)
@@ -47,9 +44,7 @@ bool Location::operator==(const Location & l)
 
 Location::~Location()
 {
-#ifdef _DEBUG
-	cout << "wywolano destruktor klasy Location" << endl;
-#endif
+
 }
 
 ostream & operator<<(ostream & s, Location & l)

@@ -242,8 +242,3 @@ ModelManifest.xml
 .fake/
 
 # Doxygen
-*.html
-*.tex
-*.js
-*.png
-*.eps

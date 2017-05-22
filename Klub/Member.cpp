@@ -11,10 +11,6 @@ Member::Member()
 	surname = "";
 	age = 0;
 	sex = MALE; 
-
-#ifdef _DEBUG
-	cout << "wywolano konstruktor klasy Member" << endl;
-#endif
 }
 
 
@@ -25,9 +21,6 @@ Member::Member(string n, string s, int a, Sex x)
 	age = a;
 	sex = x;
 	
-#ifdef _DEBUG
-	cout << "wywolano konstruktor z parametrem klasy Member" << endl;
-#endif
 }
 
 Member::operator string() const
@@ -69,7 +62,5 @@ istream & Member::readFromFile(istream &is)
 
 Member::~Member()
 {
-#ifdef _DEBUG
-	cout << "wywolano destruktor klasy Member" << endl;
-#endif
+
 }

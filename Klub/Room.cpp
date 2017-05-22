@@ -42,10 +42,6 @@ Room::Room()
 	height = 0;
 	area = 0;
 	lightMode = OFF;
-
-#ifdef _DEBUG
-	cout << "wywolano konstruktor klasy Room" << endl;
-#endif
 }
 
 Room::Room(int w, int h)
@@ -55,9 +51,6 @@ Room::Room(int w, int h)
 	area = width * height;
 	lightMode = OFF;
 
-#ifdef _DEBUG
-	cout << "wywolano konstruktor z parametrem klasy Room" << endl;
-#endif
 }
 
 ostream & Room::saveToFile(ostream &os) const
@@ -80,7 +73,5 @@ ostream & operator<<(ostream &s, Room &r)
 
 Room::~Room()
 {
-#ifdef _DEBUG
-	cout << "wywolano destruktor klasy Room" << endl;
-#endif
+
 }
